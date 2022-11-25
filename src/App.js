@@ -7,6 +7,12 @@ import ClassComp from './components/classcomponent/ClassComp';
 import Post from './components/function/Post';
 
 function App() {
+  
+  let data = {
+    "title": "This is first post",
+    "body": "This is first post description",
+    comments: ["This is first comment ", "This is second comment "]
+  }
   return (
     <div>
       <header>
@@ -17,7 +23,7 @@ function App() {
       {/* <VirtualDomConcept></VirtualDomConcept> */}
       {/* <FunctionComponent/> */}
       {/* <ClassComp/> */}
-      <Post/>
+      <Post post={data}/>
     </div>
   );
 }
