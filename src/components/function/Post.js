@@ -7,30 +7,33 @@ function Post(props){
     console.log("Title ",title, "Body ",body, "Comment", comments);
     return (
         <div className="post">
-            <PostHeader/>
-            <PostBody/>
-            <PostComment/>
+            <PostHeader title={title}/>
+            <PostBody body={body}/>
+            {
+                comments.map(comment=><PostComment comment={comment}/>)
+            }
+            {/* <PostComment comment={comments[0]}/>
             <div className="comment">
                 This is comment 2
-            </div>
+            </div> */}
         </div>
     )
 
-    function PostComment() {
+    function PostComment(props) {
         return <div className="comment">
-            This is comment 1
+            {props.comment}
         </div>;
     }
 
-    function PostBody() {
+    function PostBody(props) {
         return <div className="body">
-            Here is the post body
+           {props.body}
         </div>;
     }
 
-    function PostHeader() {
+    function PostHeader(props) {
         return <div className="title">
-            Post Title
+            {props.title}
         </div>;
     }
 }
