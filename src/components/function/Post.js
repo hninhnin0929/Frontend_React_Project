@@ -10,7 +10,7 @@ function Post(props){
             <PostHeader title={title}/>
             <PostBody body={body}/>
             {
-                comments.map(comment=><PostComment comment={comment}/>)
+                comments.map(cmt=><PostComment comment={cmt}/>)
             }
             {/* <PostComment comment={comments[0]}/>
             <div className="comment">

@@ -1,10 +1,13 @@
 //import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Hello from './components/Hello';
 import VirtualDomConcept from './components/VirtualDomConcept';
 import FunctionComponent from './components/function/FunctionComponentDemo';
 import ClassComp from './components/classcomponent/ClassComp';
 import Post from './components/function/Post';
+import Counter from './components/function/Counter';
+import TimeDisplay from './TimeDisplay';
 
 function App() {
   
@@ -23,7 +26,9 @@ function App() {
       {/* <VirtualDomConcept></VirtualDomConcept> */}
       {/* <FunctionComponent/> */}
       {/* <ClassComp/> */}
-      <Post post={data}/>
+      {/* <Post post={data}/> */}
+      {/* <Counter start={5}/> */}
+      <TimeDisplay/>
     </div>
   );
 }
