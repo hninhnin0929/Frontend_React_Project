@@ -1,5 +1,18 @@
 import React from "react";
 
+// class Child extends React.Component
+// {
+//     render(){
+//         throw new Error("Child error");
+//         return(           
+//             <div>
+//                 Hello
+//             </div>
+            
+//         );
+        
+//     }
+// }
 class TimeDisplay extends React.Component
 {
     constructor(props)
@@ -8,6 +21,11 @@ class TimeDisplay extends React.Component
         this.state = {
             now: new Date()
         }
+    }
+    shouldComponentUpdate()
+    {
+        console.log("Should component update");
+        return true;
     }
     componentDidMount()
     {
@@ -22,6 +40,10 @@ class TimeDisplay extends React.Component
     {
         console.log("Component did unmount");
         clearInterval(this.timerId);    //best practice
+    }
+    static getDerivedStateFromError(error)
+    {
+        console.log("Got error ",error);
     }
     render()
     {

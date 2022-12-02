@@ -8,13 +8,19 @@ import ClassComp from './components/classcomponent/ClassComp';
 import Post from './components/function/Post';
 import Counter from './components/function/Counter';
 import TimeDisplay from './TimeDisplay';
+import ConditionalRendering from './components/ConditionalRendering';
+import ListDemo from './ListDemo';
+
 
 function App() {
   
   let data = {
     "title": "This is first post",
     "body": "This is first post description",
-    comments: ["This is first comment ", "This is second comment "]
+    comments: [
+                {id:1, text: "This is first comment "}, 
+                {id:2, text: "This is second comment "}
+              ]
   }
   return (
     <div>
@@ -28,7 +34,9 @@ function App() {
       {/* <ClassComp/> */}
       {/* <Post post={data}/> */}
       {/* <Counter start={5}/> */}
-      <TimeDisplay/>
+      {/* <TimeDisplay/> */}
+      {/* <ConditionalRendering/> */}
+      <ListDemo items={data.comments}/>
     </div>
   );
 }

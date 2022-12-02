@@ -10,7 +10,8 @@ function Post(props){
             <PostHeader title={title}/>
             <PostBody body={body}/>
             {
-                comments.map(cmt=><PostComment comment={cmt}/>)
+                comments.map(cmt=><PostComment key={cmt.id} comment={cmt}/>)
+                // {cmt.id} should be id from server
             }
             {/* <PostComment comment={comments[0]}/>
             <div className="comment">
@@ -20,7 +21,11 @@ function Post(props){
     )
 
     function PostComment(props) {
-        return <div className="comment">
+
+        function commentClicked(id){
+            console.log("Comment clicked ", id);
+        }
+        return <div className="comment" onClick={()=>commentClicked(props.comment.id)}>
             {props.comment}
         </div>;
     }
