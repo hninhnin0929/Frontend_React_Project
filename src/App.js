@@ -10,6 +10,7 @@ import Counter from './components/function/Counter';
 import TimeDisplay from './TimeDisplay';
 import ConditionalRendering from './components/ConditionalRendering';
 import ListDemo from './ListDemo';
+import FormDemo from './form/FormDemo';
 
 
 function App() {
@@ -36,7 +37,8 @@ function App() {
       {/* <Counter start={5}/> */}
       {/* <TimeDisplay/> */}
       {/* <ConditionalRendering/> */}
-      <ListDemo items={data.comments}/>
+      {/* <ListDemo items={data.comments}/> */}
+      <FormDemo/>
     </div>
   );
 }
