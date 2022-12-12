@@ -13,6 +13,7 @@ class FormDemo extends React.Component
         this.handleTitleChange = this.handleTitleChange.bind(this);   //bind with current obj
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleGenreChange = this.handleGenreChange.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleTitleChange(event)
@@ -38,6 +39,15 @@ class FormDemo extends React.Component
         this.setState({
             genre : event.target.value
         })
+    }
+    handleInputChange(event)
+    {
+       const target = event.target;
+       const value = target.type === "checkbox" ? target.checked : target.value;
+       const name = target.name;
+       this.setState({
+        [name]: value
+       })
     }
     handleSubmit(event){
         console.log("Form submit", this.state);

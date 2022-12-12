@@ -44,3 +44,16 @@
 .counter{
   margin: 30px;
 }
+.fancy-blue
+{
+  border: 1px solid blue;
+  min-height: 100px;
+  margin: 50px;
+}
+.fancy-green
+{
+  border: 1px solid green;
+  min-height: 100px;
+  margin: 50px;
+}
+

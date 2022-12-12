@@ -10,7 +10,7 @@ function Post(props){
             <PostHeader title={title}/>
             <PostBody body={body}/>
             {
-                comments.map(cmt=><PostComment key={cmt.id} comment={cmt}/>)
+                // comments.map(cmt=><PostComment key={cmt.id} comment={cmt}/>)
                 // {cmt.id} should be id from server
             }
             {/* <PostComment comment={comments[0]}/>

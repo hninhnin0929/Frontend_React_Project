@@ -11,6 +11,7 @@ import TimeDisplay from './TimeDisplay';
 import ConditionalRendering from './components/ConditionalRendering';
 import ListDemo from './ListDemo';
 import FormDemo from './form/FormDemo';
+import FancyBorder from './components/pattern/composition/FuncyBorder';
 
 
 function App() {
@@ -38,7 +39,18 @@ function App() {
       {/* <TimeDisplay/> */}
       {/* <ConditionalRendering/> */}
       {/* <ListDemo items={data.comments}/> */}
-      <FormDemo/>
+      {/* <FormDemo/> */}
+      {/* <Post post={data} comments={data.comments}/> */}
+      <FancyBorder color='blue'>
+        <Post post={data} comments={data.comments}/>
+      </FancyBorder>
+      <FancyBorder color='green'>
+        <ol>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+        </ol>
+      </FancyBorder>
     </div>
   );
 }
