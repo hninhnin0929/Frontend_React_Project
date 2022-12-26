@@ -12,6 +12,7 @@ import ConditionalRendering from './components/ConditionalRendering';
 import ListDemo from './ListDemo';
 import FormDemo from './form/FormDemo';
 import FancyBorder from './components/pattern/composition/FuncyBorder';
+import Tab from './components/pattern/composition/Tab';
 
 
 function App() {
@@ -24,6 +25,11 @@ function App() {
                 {id:2, text: "This is second comment "}
               ]
   }
+  let headers = [
+    "one",
+    "two",
+    "three"
+  ]
   return (
     <div>
       <header>
@@ -41,7 +47,8 @@ function App() {
       {/* <ListDemo items={data.comments}/> */}
       {/* <FormDemo/> */}
       {/* <Post post={data} comments={data.comments}/> */}
-      <FancyBorder color='blue'>
+      
+      {/* <FancyBorder color='blue'>
         <Post post={data} comments={data.comments}/>
       </FancyBorder>
       <FancyBorder color='green'>
@@ -50,7 +57,19 @@ function App() {
           <li>Two</li>
           <li>Three</li>
         </ol>
-      </FancyBorder>
+      </FancyBorder> */}
+
+      <Tab headers={headers}>
+        <div>
+          Page 1
+        </div>
+        <div>
+          Page 2
+        </div>
+        <div>
+          Page 3
+        </div>
+      </Tab>
     </div>
   );
 }
