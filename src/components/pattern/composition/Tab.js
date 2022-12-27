@@ -1,8 +1,25 @@
 import React from "react";
-
+import { PropTypes } from 'prop-types'
 function TabBody(props)
 {
 
+}
+function TabHeader(props)
+{
+    function headerClicked()
+    {
+        props.headerHandler(props.headerIndex);
+    }
+    return(
+        <div className="tab-header" onClick={headerClicked}>
+            {props.header}
+        </div>
+    );
+}
+TabHeader.propTypes = {
+    headerIndex: PropTypes.number.isRequired,
+    header: PropTypes.string.isRequired,
+    headerHandler: PropTypes.func.isRequired
 }
 class Tab extends React.Component
 {
@@ -16,6 +33,13 @@ class Tab extends React.Component
             activeTab : 0
         }
     }
+    headerClick(headerIndex)
+    {
+        console.log("Header Click", headerIndex, "this",this);
+        this.setState({
+            activeTab : headerIndex
+        })
+    }
     render()
     {
         console.log("header ", this.props.headers);
@@ -24,12 +48,18 @@ class Tab extends React.Component
             <div>
                 <div>
                     {
-                        this.props.headers.map(header=>{
+                        // this.props.headers.map(header=>{
+                        //     return (
+                        //         <div className="tab-header">
+                        //             {header}
+                        //         </div>
+                        //     )
+                        // })
+                        this.props.headers.map((header, index)=>{
                             return (
-                                <div className="tab-header">
-                                    {header}
-                                </div>
-                            )
+                                <TabHeader header={header} 
+                                headerIndex = {index}
+                                headerHandler = {this.headerClick.bind(this)}/>                           )
                         })
                     }
                 </div>
