@@ -40,6 +40,10 @@ class Tab extends React.Component
             activeTab : headerIndex
         })
     }
+    shouldComponentUpdate(nextProps, nextState)
+    {
+        return this.state.activeTab != nextState.activeTab;
+    }
     render()
     {
         console.log("header ", this.props.headers);

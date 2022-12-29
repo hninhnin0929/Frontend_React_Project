@@ -13,7 +13,9 @@ import ListDemo from './ListDemo';
 import FormDemo from './form/FormDemo';
 import FancyBorder from './components/pattern/composition/FuncyBorder';
 import Tab from './components/pattern/composition/Tab';
-
+import TableDemo from './components/fragment/TableDemo';
+import ImportDemo,{ComponentOne} from "./components/importdemo/ImportDemo"; //default import, name import
+import DomRef from './components/ref/DomRef';
 
 function App() {
   
@@ -59,7 +61,7 @@ function App() {
         </ol>
       </FancyBorder> */}
 
-      <Tab headers={headers}>
+      {/* <Tab headers={headers}>
         <div>
           Page 1
         </div>
@@ -69,7 +71,14 @@ function App() {
         <div>
           Page 3
         </div>
-      </Tab>
+      </Tab> */}
+
+      {/* <TableDemo data={data.comments}/> */}
+
+      {/* <ImportDemo/>
+      <ComponentOne/> */}
+
+      <DomRef/>
     </div>
   );
 }
