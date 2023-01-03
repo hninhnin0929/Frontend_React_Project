@@ -16,6 +16,16 @@ import Tab from './components/pattern/composition/Tab';
 import TableDemo from './components/fragment/TableDemo';
 import ImportDemo,{ComponentOne} from "./components/importdemo/ImportDemo"; //default import, name import
 import DomRef from './components/ref/DomRef';
+import { Suspense, useEffect } from 'react';
+// import PointerEvent from './components/pointerevent/PointerEvent';
+import React from 'react';
+import ErrorBoundary from './components/errorboundary/ErrorBoundary';
+import ErrorComponent from './components/errorboundary/ErrorComponent';
+import { DataContext } from './components/context/DataContext';
+import Parent from './components/context/Parent';
+import ForwardRef from './components/ref/ForwardRef';
+const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'))
+
 
 function App() {
   
@@ -32,6 +42,13 @@ function App() {
     "two",
     "three"
   ]
+  let loading = false;
+  useEffect(()=>{
+    setTimeout(() => {
+      loading = true;
+    }, 1000);
+  })
+
   return (
     <div>
       <header>
@@ -78,9 +95,57 @@ function App() {
       {/* <ImportDemo/>
       <ComponentOne/> */}
 
-      <DomRef/>
+      {/* <DomRef/> */}
+
+      {/* <PointerEvent/> */}
+      {/* <Suspense fallback={<div>loading...</div>}>
+        <PointerEvent/>
+      </Suspense> */}
+
+      {/* <ErrorBoundary>
+        <ErrorComponent/>
+      </ErrorBoundary> */}
+
+      {/* <DataContext.Provider value={headers}>
+        <Parent/>
+      </DataContext.Provider> */}
+
+      <ForwardRef/>
+      
     </div>
   );
 }
 
 export default App;
+
+//Normal
+{/* <Parent data={data}>
+  <Child1 data={data}>
+    <Child2 data={data}>
+      
+    </Child2>
+  </Child1>
+</Parent> */}
+
+//createContext
+{/* <Theme>
+  <Child1>
+    <Button data={data}>  //useContext
+    </Button>
+  </Child1>
+</Theme> */}
+
+//parent control child's data
+{/* <Theme> => want to  use button ref
+  <Child1>
+    <Button ref>  
+    </Button>
+  </Child1>
+</Theme> */}
+
+// LoadingPage(AnyPage)
+// Loading =>Show Loading icon => concern
+// Page => View      => concern
+// <Page>
+//   LoadingIcon
+// </Page>
