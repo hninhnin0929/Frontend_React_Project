@@ -24,8 +24,11 @@ import ErrorComponent from './components/errorboundary/ErrorComponent';
 import { DataContext } from './components/context/DataContext';
 import Parent from './components/context/Parent';
 import ForwardRef from './components/ref/ForwardRef';
-const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'))
 
+import loadingSpinner from './components/hoc/LoadingSpinner';
+import Page from './components/hoc/Page';
+import HocDemo from './components/hoc/HocDemo';
+const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
 
 function App() {
   
@@ -42,11 +45,14 @@ function App() {
     "two",
     "three"
   ]
-  let loading = false;
+  // let PageWithSpinner = loadingSpinner(Page);
+
+  let loading = true;
   useEffect(()=>{
     setTimeout(() => {
-      loading = true;
-    }, 1000);
+      console.log("Loading completed!");
+      loading = false;
+    }, 5000);
   })
 
   return (
@@ -110,7 +116,11 @@ function App() {
         <Parent/>
       </DataContext.Provider> */}
 
-      <ForwardRef/>
+      {/* <ForwardRef/> */}
+
+      {/* <PageWithSpinner loading={loading}/> */}
+
+      <HocDemo/>
       
     </div>
   );
