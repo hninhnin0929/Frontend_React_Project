@@ -29,6 +29,9 @@ import loadingSpinner from './components/hoc/LoadingSpinner';
 import Page from './components/hoc/Page';
 import HocDemo from './components/hoc/HocDemo';
 import MouseTracker, { View1, View2 } from './components/render-props/MouseTracker';
+import ThirdParty from './components/thirdparty/ThirdParty';
+import JSXElement from './components/jsx/JSXElement';
+import Mapper, {ChildElement} from './components/jsx/Mapper';
 const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
 
 function App() {
@@ -123,10 +126,16 @@ function App() {
 
       {/* <HocDemo/> */}
 
-      <MouseTracker render={mouse=>
+      {/* <MouseTracker render={mouse=>
         <View2 mouse={mouse}/>
-      }/>
-      
+      }/> */}
+
+      {/* <ThirdParty/> */}
+
+      {/* but it is not the best option */}
+      {/* <JSXElement/> */}
+
+      <Mapper data={data.comments} element={ChildElement}/>
     </div>
   );
 }
