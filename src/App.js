@@ -28,6 +28,7 @@ import ForwardRef from './components/ref/ForwardRef';
 import loadingSpinner from './components/hoc/LoadingSpinner';
 import Page from './components/hoc/Page';
 import HocDemo from './components/hoc/HocDemo';
+import MouseTracker, { View1, View2 } from './components/render-props/MouseTracker';
 const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
 
 function App() {
@@ -120,7 +121,11 @@ function App() {
 
       {/* <PageWithSpinner loading={loading}/> */}
 
-      <HocDemo/>
+      {/* <HocDemo/> */}
+
+      <MouseTracker render={mouse=>
+        <View2 mouse={mouse}/>
+      }/>
       
     </div>
   );
