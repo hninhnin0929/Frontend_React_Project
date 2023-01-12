@@ -34,6 +34,7 @@ import JSXElement from './components/jsx/JSXElement';
 import Mapper, {ChildElement} from './components/jsx/Mapper';
 import PureCounter from './components/PureCounter';
 import ListOfWord from './components/ListOfWord';
+import { PortalParent } from './components/portal/PortalComponent';
 const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
 
 function App() {
@@ -141,6 +142,8 @@ function App() {
 
       {/* <PureCounter/> */}
       <ListOfWord/>
+      {/* external root// portal root// may use in modal */}
+      <PortalParent/>
 
 
     </div>
