@@ -14,9 +14,12 @@ const Mapper = (props)=>{
     )
 }
 export const ChildElement = (props)=>{
+    // console.log("Item ", props.item);
+    console.log("Item ", props);
     return(
         <div>
-            Data
+            {/* {props.item.text} */}
+            Hi
         </div>
     )
 }
