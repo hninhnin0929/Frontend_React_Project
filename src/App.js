@@ -35,6 +35,9 @@ import Mapper, {ChildElement} from './components/jsx/Mapper';
 import PureCounter from './components/PureCounter';
 import ListOfWord from './components/ListOfWord';
 import { PortalParent } from './components/portal/PortalComponent';
+import HookCounter from './components/hook/HookCounter';
+import UseEffectDemo from './components/hook/UseEffectDemo';
+import CleanUpDemo from './components/hook/CleanUpDemo';
 const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
 
 function App() {
@@ -141,9 +144,15 @@ function App() {
       {/* <Mapper data={data.comments} element={ChildElement}/> */}
 
       {/* <PureCounter/> */}
-      <ListOfWord/>
+      {/* <ListOfWord/> */}
       {/* external root// portal root// may use in modal */}
-      <PortalParent/>
+      {/* <PortalParent/> */}
+
+      {/* <HookCounter/> */}
+
+      {/* <UseEffectDemo/> */}
+
+      <CleanUpDemo/>
 
 
     </div>
