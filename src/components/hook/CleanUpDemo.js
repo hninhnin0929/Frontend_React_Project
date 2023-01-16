@@ -4,7 +4,6 @@ import UseEffectDemo from "./UseEffectDemo";
 function CleanUpDemo()
 {
     let [destroy,setDestroy] = useState(false);
-
     return (<div>
         {!destroy && <UseEffectDemo/>}
         <button type="button"

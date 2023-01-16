@@ -38,6 +38,7 @@ import { PortalParent } from './components/portal/PortalComponent';
 import HookCounter from './components/hook/HookCounter';
 import UseEffectDemo from './components/hook/UseEffectDemo';
 import CleanUpDemo from './components/hook/CleanUpDemo';
+import APICallDemo from './components/hook/APICallDemo';
 const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
 
 function App() {
@@ -152,7 +153,9 @@ function App() {
 
       {/* <UseEffectDemo/> */}
 
-      <CleanUpDemo/>
+      {/* <CleanUpDemo/> */}
+
+      <APICallDemo/>
 
 
     </div>
