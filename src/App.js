@@ -39,6 +39,7 @@ import HookCounter from './components/hook/HookCounter';
 import UseEffectDemo from './components/hook/UseEffectDemo';
 import CleanUpDemo from './components/hook/CleanUpDemo';
 import APICallDemo from './components/hook/APICallDemo';
+import UseCallBackDemo from './components/hook/UseCallBack';
 const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
 
 function App() {
@@ -155,7 +156,9 @@ function App() {
 
       {/* <CleanUpDemo/> */}
 
-      <APICallDemo/>
+      {/* <APICallDemo/> */}
+
+      <UseCallBackDemo/>
 
 
     </div>
