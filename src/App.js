@@ -44,8 +44,20 @@ import UseRefDemo from './components/hook/UseRefDemo';
 import ReduxCounter from './components/hook/redux/ReduxCounter';
 import ToDoRedux from './components/hook/redux/ToDoRedux';
 import FormikDemo from './form/FormikDemo';
-const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
+import {
+  BrowserRouter as Router,
+  // Switch,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import AboutPage from './pages/AboutPage';
+import UserPage from './pages/UserPage';
+import HomePage from './pages/HomePage';
 
+
+
+const PointerEvent = React.lazy(()=> import('./components/pointerevent/PointerEvent'));
 function App() {
   
   let data = {
@@ -171,8 +183,83 @@ function App() {
       {/* <ToDoRedux/> */}
 
       {/* <FormDemo/> */}
-      <FormikDemo/>
+      {/* <FormikDemo/> */}
 
+      <Router>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="#">Navbar</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                  {/* <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a> */}
+                  <Link className="nav-link" to="/">Home</Link>
+                </li>
+                <li className="nav-item">
+                  {/* <a className="nav-link" href="#">About</a> */}
+                  <Link className="nav-link" to="/about">About</Link>
+                </li>
+                {/* <li className="nav-item dropdown">
+                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a className="dropdown-item" href="#">Action</a>
+                    <a className="dropdown-item" href="#">Another action</a>
+                    <div className="dropdown-divider"></div>
+                    <a className="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li> */}
+                <li className="nav-item">
+                  {/* <a className="nav-link" href="#">User</a> */}
+                  <Link className="nav-link" to="/users">Users</Link>
+                </li>
+              </ul>
+              {/* <form className="form-inline my-2 my-lg-0">
+                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form> */}
+            </div>
+          </nav>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/users">Users</Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+         {/* <Switch>  */}
+         {/* If you are using react-router-dom v6, it looks like Switch has been replaced with Routes */}
+          <Routes>
+            <Route path="/about" element={
+              <AboutPage/>
+            }>
+            </Route>
+            <Route path="/users" element={
+              <UserPage/>
+            }> 
+            </Route>
+            <Route path="/" element={
+              <HomePage/>
+            }>
+            </Route>
+            {/* </Switch> */}
+          </Routes>
+        </div>
+      </Router>
 
     </div>
   );
