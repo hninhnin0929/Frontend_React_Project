@@ -1,16 +1,22 @@
 import React from "react";
 import { Formik, useFormik } from "formik";
+import * as Yup from 'yup';
 
 const FormikDemo = ()=>{
 
-    const validate = values=>{
-        const errors = {};
-        if(!values.title)
-        {
-            errors.title = "Title required";
-        }
-        return errors;
-    };
+    // const validate = values=>{
+    //     console.log("Validation called");
+    //     const errors = {};
+    //     if(!values.title)
+    //     {
+    //         errors.title = "Title required";
+    //     }
+    //     if(!values.description)
+    //     {
+    //         errors.description = "Description required";
+    //     }
+    //     return errors;
+    // };
 
     const formik = useFormik({
         initialValues: {
@@ -18,7 +24,17 @@ const FormikDemo = ()=>{
             description: '',
             genre: ''
         },
-        validate,
+        // validate,
+        validationSchema: Yup.object({
+            title: Yup.string()
+                .max(15, 'Title must be 15 characters or less')
+                .required('Title Required'),
+            description: Yup.string()
+            .max(20, 'Description must be 15 characters or less')
+            .required('Description Required'),
+            // genre: Yup.string()
+            // .required('Required'),
+        }),
         onSubmit: values => {
             console.log("values = ", values);
             // alert(JSON.stringify(values, null,2));
@@ -36,10 +52,11 @@ const FormikDemo = ()=>{
                     <input type="text"                            
                             className="form-control"
                             name="title"//name=initial value
+                            onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
                             value={formik.values.title} //it works if name=initial value name
                     />
-                    {formik.errors.title?  <div className="alert alert-danger">
+                    {formik.touched.title && formik.errors.title?  <div className="alert alert-danger">
                                                 {formik.errors.title}
                                             </div> 
                                         : null}
@@ -51,9 +68,14 @@ const FormikDemo = ()=>{
                     <textarea id="description" 
                               className="form-control"
                               name="description"
+                              onBlur={formik.handleBlur}
                               onChange={formik.handleChange}
                               value={formik.values.description}
                     />
+                    {formik.touched.description && formik.errors.description?  <div className="alert alert-danger">
+                            {formik.errors.description}
+                        </div> 
+                    : null}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="genre" className="form-label">
@@ -62,6 +84,7 @@ const FormikDemo = ()=>{
                     <select id="genre" 
                             className="form-control"
                             name="genre"
+                            onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
                             value={formik.values.genre}
                         >
