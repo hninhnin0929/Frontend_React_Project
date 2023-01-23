@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
 
-export default function AboutPage(){
+export default function MoviePage(){
     let {id} = useParams();
     console.log("Id ", id);
     return <div>
-        About Page url {id}
+        Movie Page <h1>Movie Id {id}</h1>
     </div>
 }

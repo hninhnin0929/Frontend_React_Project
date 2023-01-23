@@ -54,6 +54,7 @@ import {
 import AboutPage from './pages/AboutPage';
 import UserPage from './pages/UserPage';
 import HomePage from './pages/HomePage';
+import MoviePage from './pages/MoviePage';
 
 
 
@@ -217,6 +218,9 @@ function App() {
                   {/* <a className="nav-link" href="#">User</a> */}
                   <Link className="nav-link" to="/users">Users</Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/movie/1">Movies</Link>
+                </li>
               </ul>
               {/* <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -236,6 +240,9 @@ function App() {
               <li>
                 <Link to="/users">Users</Link>
               </li>
+              <li>
+                <Link to="/movie/1">Movies</Link>
+              </li>
             </ul>
           </nav>
 
@@ -252,8 +259,12 @@ function App() {
               <UserPage/>
             }> 
             </Route>
-            <Route path="/" element={
-              <HomePage/>
+            <Route path="/movie/:id" element={
+              <MoviePage/>
+            }> 
+            </Route>
+              <Route path="/" element={   //should keep in the last
+                <HomePage/>
             }>
             </Route>
             {/* </Switch> */}
