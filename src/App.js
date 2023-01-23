@@ -255,7 +255,7 @@ function App() {
               <AboutPage/>
             }>
             </Route>
-            <Route path="/users" element={
+            <Route path="/users/*" element={
               <UserPage/>
             }> 
             </Route>
