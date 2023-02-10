@@ -58,6 +58,8 @@ import MoviePage from './pages/MoviePage';
 import LoginPage from './pages/LoginPage';
 import ProtectedPage from './pages/ProtectedPage';
 import PrivateRoute from './components/routes/PrivateRoute';
+import auth from './pages/auth';
+import PageNotFound from './pages/PageNotFound';
 
 
 
@@ -86,6 +88,8 @@ function App() {
       loading = false;
     }, 5000);
   })
+
+  let user = "admin";
 
   return (
     <div>
@@ -268,8 +272,8 @@ function App() {
               <LoginPage/>
             }>
             </Route>
-            <Route path="/protected" element={
-              <PrivateRoute>
+            <Route path="/protected"  element={
+              <PrivateRoute authenticate={auth() && user=="admin"}>
                 <ProtectedPage/>
               </PrivateRoute>
             }>
@@ -282,9 +286,13 @@ function App() {
               <MoviePage/>
             }> 
             </Route>
-              <Route path="/" element={   //should keep in the last
+              <Route exact path="/" element={   //should keep in the last
                 <HomePage/>
             }>
+            </Route>
+            <Route path="*" element={
+              <PageNotFound/>
+            }> 
             </Route>
             {/* </Switch> */}
           </Routes>

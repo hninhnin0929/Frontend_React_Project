@@ -35,9 +35,14 @@ import {
 //     )
 //   }
 
-const PrivateRoute = ({ childdren }) => {
-    const authed = auth();
-    return authed ? childdren : <Navigate to="/login"/>
+const PrivateRoute = ({ children, authenticate }) => {
+  console.log("Private Route");
+  console.log("auth =" , authenticate);
+  console.log("childrean",children);
+  // const authed = auth();
+    const authed = authenticate;
+    console.log("authneew =" , authed);
+    return authed ? children : <Navigate to="/login"/>;
 }
 
 export default PrivateRoute;
