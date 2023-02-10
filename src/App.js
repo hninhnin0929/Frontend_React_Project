@@ -55,6 +55,9 @@ import AboutPage from './pages/AboutPage';
 import UserPage from './pages/UserPage';
 import HomePage from './pages/HomePage';
 import MoviePage from './pages/MoviePage';
+import LoginPage from './pages/LoginPage';
+import ProtectedPage from './pages/ProtectedPage';
+import PrivateRoute from './components/routes/PrivateRoute';
 
 
 
@@ -221,6 +224,9 @@ function App() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/movie/1">Movies</Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/protected">Protected</Link>
+                </li>
               </ul>
               {/* <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -243,6 +249,9 @@ function App() {
               <li>
                 <Link to="/movie/1">Movies</Link>
               </li>
+              <li>
+                <Link to="/protected">Protected</Link>
+              </li>
             </ul>
           </nav>
 
@@ -253,6 +262,16 @@ function App() {
           <Routes>
             <Route path="/about" element={
               <AboutPage/>
+            }>
+            </Route>
+            <Route path="/login" element={
+              <LoginPage/>
+            }>
+            </Route>
+            <Route path="/protected" element={
+              <PrivateRoute>
+                <ProtectedPage/>
+              </PrivateRoute>
             }>
             </Route>
             <Route path="/users/*" element={
